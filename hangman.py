@@ -12,3 +12,17 @@ categories = {
 # user_category = categories[user_choice]
 # hidden_word = random.choice(user_category)
 # print hidden_word
+# print "_ " * len(hidden_word)
+
+
+
+def hangman():
+    print "Hello! Welcome to Python Hangman! We have five categories of words: animals, countries, fruits, games, and movies."
+    user_choice = raw_input("To get started, please choose one of the available categories: ")
+    if user_choice.lower() in categories.keys():
+        print "Okay"
+    else:
+        print "Sorry that is not one of the categories"
+        hangman()
+
+print hangman()
