@@ -29,7 +29,10 @@ def hangman():
             user_guess = raw_input("Please guess a letter: ")
             letter_guess = user_guess.lower()
             if len(letter_guess) == 1:
-                if letter_guess in "abcdefghijklmnopqrstuvwxyz":
+                if letter_guess.isalpha():
+                    guessed_letters.append(letter_guess)
+                    guessed_letters.sort()
+                    print "Guessed letters: " , guessed_letters
                     if letter_guess in hidden_word:
                         print letter_guess
                     else:
