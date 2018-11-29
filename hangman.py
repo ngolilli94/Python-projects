@@ -30,14 +30,18 @@ def hangman():
             letter_guess = user_guess.lower()
             if len(letter_guess) == 1:
                 if letter_guess.isalpha():
-                    guessed_letters.append(letter_guess)
-                    guessed_letters.sort()
-                    print "Guessed letters: " , guessed_letters
-                    if letter_guess in hidden_word:
-                        print letter_guess
+                    if letter_guess not in guessed_letters:
+                        guessed_letters.append(letter_guess)
+                        guessed_letters.sort()
+                        print "Guessed letters: " , guessed_letters
+                        if letter_guess in hidden_word:
+                            print letter_guess
+                        else:
+                            incorrect_guesses -= 1
+                            print "Sorry, that letter is not in the word. You have " + str(incorrect_guesses) + " incorrect guesses remaining."
                     else:
-                        incorrect_guesses -= 1
-                        print "Sorry, that letter is not in the word. You have " + str(incorrect_guesses) + " incorrect guesses remaining."
+                        print "You guessed that letter already!"
+                        print "You have " + str(incorrect_guesses) + " incorrect guesses remaining."
                 else:
                     print "That is not a letter, please guess only letters"
             else:
