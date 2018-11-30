@@ -8,12 +8,23 @@ categories = {
     "movie": ["casablanca", "frozen", "inception", "jaws", "titanic"]
 }
 
-# user_choice = raw_input("Please choose a category: ")
-# user_category = categories[user_choice]
-# hidden_word = random.choice(user_category)
-# print hidden_word
-# unrevealed = "-" * len(hidden_word)
-# print unrevealed
+user_choice = raw_input("Please choose a category: ")
+user_category = categories[user_choice]
+hidden_word = random.choice(user_category)
+letter_list = list(hidden_word)
+hidden_letters = []
+for i in hidden_word:
+    hidden_letters.append("-")
+print hidden_letters
+fill_in = "".join(hidden_letters)
+user_guess = raw_input("Please guess a letter: ")
+letter_guess = user_guess.lower()
+if user_guess in hidden_word:
+    letter_search = [i for i, e in enumerate(letter_list) if e == letter_guess]
+    for i in letter_search:
+        hidden_letters[i] = user_guess
+    print hidden_letters
+    print "".join(hidden_letters)
 
 def hangman():
     print "Hello! Welcome to Python Hangman! There are five categories of words: animal, country, fruit, game, and movie."
@@ -43,8 +54,9 @@ def hangman():
             elif letter_guess in guessed_letters:
                 print "You guessed that letter already!"
                 print "You have " + str(incorrect_guesses) + " incorrect guesses remaining."
+        print "Sorry, game over! Your word was: %s" % (hidden_word)
     else:
         print "Sorry that is not one of the categories"
         hangman()
 
-print hangman()
+# print hangman()
