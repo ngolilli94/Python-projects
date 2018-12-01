@@ -48,10 +48,10 @@ def hangman():
                 print
 
                 if letter_guess in guess_word:
-                    # List comprehension for search for indexes of correct letter guess in guess_word
+                    # List comprehension to search for indexes of correct letter guess in guess_word
                     letter_index_search = [i for i, char in enumerate(word_as_list) if char == letter_guess]
                     
-                    # Replace appropriate "-" with correctly guessed letter
+                    # Replace "-" with correctly guessed letter at proper index
                     for i in letter_index_search:
                         word_as_blanks[i] = letter_guess
                     print "".join(word_as_blanks)
