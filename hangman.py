@@ -29,12 +29,13 @@ def hangman():
         incorrect_guesses = 6
 
         # print guess_word
+        print "Your word:"
         print fill_in_blank
 
         while incorrect_guesses > 0:
             if "".join(word_as_blanks) == guess_word:
                 print "Congratulations! You correctly guessed the word!"
-                print guess_word
+                # print guess_word
                 break
 
             user_guess = raw_input("Please guess a letter: ")
